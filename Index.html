@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Greene Vine Productions – Homepage</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide icons (CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    /* small niceties */
+    html, body { height: 100%; background: #000; }
+  </style>
+</head>
+<body class="text-zinc-100 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <a href="#home" class="flex items-center gap-2 group">
+        <span aria-hidden class="inline-block w-2 h-6 bg-emerald-400 rounded"></span>
+        <span class="font-semibold tracking-wide group-hover:text-emerald-300 transition">Greene Vine Productions</span>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#subsidiaries" class="hover:text-emerald-300">Subsidiaries</a>
+        <a href="#releases" class="hover:text-emerald-300">Releases</a>
+        <a href="#shop" class="hover:text-emerald-300">Shop</a>
+        <a href="#protection" class="hover:text-emerald-300">IP Protection</a>
+        <a href="#contact" class="hover:text-emerald-300">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="relative overflow-hidden">
+    <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(16,185,129,0.15),transparent_50%)]"></div>
+    <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20">
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold leading-tight">
+        Music-first experiences for a modern label, publisher, and studio.
+      </h1>
+      <p class="mt-5 max-w-2xl text-zinc-300">
+        A unified home for <span class="text-emerald-300">MeeSo Records</span>, <span class="text-emerald-300">Greene Vine Publishing</span>, and <span class="text-emerald-300">Greene Vine Studios</span> — built for discovery, sales, and bookings.
+      </p>
+      <div class="mt-8 flex flex-wrap gap-3">
+        <a href="#releases" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium transition">
+          <i data-lucide="play" class="w-4 h-4"></i> Preview Music
+        </a>
+        <a href="#shop" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-white/10 hover:bg-white/15 text-white font-medium transition">
+          <i data-lucide="shopping-cart" class="w-4 h-4"></i> Shop Vinyl & CDs
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subsidiaries -->
+  <section id="subsidiaries" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-8">
+      <h2 class="text-2xl sm:text-3xl font-semibold">Subsidiaries</h2>
+      <p class="mt-2 text-zinc-400">Each brand gets a dedicated area with its own goals and KPIs.</p>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
+        <div class="flex items-center gap-2 text-emerald-300">
+          <i data-lucide="music-3" class="w-5 h-5"></i><span class="font-medium">MeeSo Records</span>
+        </div>
+        <p class="mt-2 text-sm text-zinc-400">Label site for releases and artists with sample previews and secure post-purchase access.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">Explore Releases <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+
+      <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
+        <div class="flex items-center gap-2 text-emerald-300">
+          <i data-lucide="book-open-text" class="w-5 h-5"></i><span class="font-medium">Greene Vine Publishing</span>
+        </div>
+        <p class="mt-2 text-sm text-zinc-400">Catalog listings, rights inquiries, and licensing request workflows.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">View Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+
+      <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
+        <div class="flex items-center gap-2 text-emerald-300">
+          <i data-lucide="building-2" class="w-5 h-5"></i><span class="font-medium">Greene Vine Studios</span>
+        </div>
+        <p class="mt-2 text-sm text-zinc-400">Studio rentals with request-only calendar or full scheduling + deposits.</p>
+        <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">Book the Studio <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Release / Preview -->
+  <section id="releases" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="mb-8 flex items-end justify-between gap-4">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-semibold">Featured Release</h2>
+        <p class="mt-2 text-zinc-400">Public page offers 30-second previews. Full stream/download unlocks after purchase.</p>
+      </div>
+      <a href="#shop" class="inline-flex items-center gap-2 text-emerald-300 hover:text-emerald-200">
+        Go to Shop <i data-lucide="arrow-right" class="w-4 h-4"></i>
+      </a>
+    </div>
+
+    <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+      <div class="grid md:grid-cols-2">
+        <div class="p-6 md:p-8">
+          <div class="flex items-center gap-4">
+            <div class="w-20 h-20 rounded-xl bg-emerald-500/20 border border-emerald-400/30" aria-label="Album cover placeholder"></div>
+            <div>
+              <h3 class="text-xl font-semibold">Midnight Echoes</h3>
+              <p class="text-sm text-zinc-400">MeeSo Records • Samuel Richard Greene</p>
+            </div>
+          </div>
+
+          <div class="mt-6 space-y-3">
+            <div class="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+              <div class="flex items-center gap-3">
+                <i data-lucide="play" class="w-4 h-4 opacity-80"></i>
+                <span>Intro Groove</span>
+              </div>
+              <span class="text-xs text-zinc-400">2:44</span>
+            </div>
+            <div class="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-3 py-2">
+              <div class="flex items-center gap-3">
+                <i data-lucide="play" class="w-4 h-4 opacity-80"></i>
+                <span>City Skyline</span>
+              </div>
+              <span class="text-xs text-zinc-400">3:58</span>
+            </div>
+          </div>
+
+          <div class="mt-6 flex items-center gap-3">
+            <button id="previewBtn" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium transition">
+              <i data-lucide="play" class="w-4 h-4"></i>
+              <span id="previewLabel">Play 30s Preview</span>
+            </button>
+            <div class="text-xs text-zinc-400" id="previewStatus">0:30 preview (public)</div>
+          </div>
+
+          <!-- Hidden audio element -->
+          <audio id="previewAudio" class="hidden"></audio>
+
+          <div class="mt-6 flex flex-wrap gap-3">
+            <a href="#shop" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-white/10 hover:bg-white/15">
+              <i data-lucide="shopping-cart" class="w-4 h-4"></i> Buy Vinyl/CD
+            </a>
+            <a href="#account" class="inline-flex items-center gap-2 rounded-xl px-3 py-2 bg-white/10 hover:bg-white/15">
+              <i data-lucide="shield-check" class="w-4 h-4"></i> Stream after purchase
+            </a>
+          </div>
+        </div>
+
+        <div class="p-6 md:p-8 bg-[linear-gradient(to_bottom_right,rgba(16,185,129,0.12),transparent)] border-t md:border-t-0 md:border-l border-white/10">
+          <h4 class="font-medium">What this demo proves</h4>
+          <ul class="mt-3 space-y-2 text-sm text-zinc-300 list-disc list-inside">
+            <li>Public previews are capped at 30 seconds.</li>
+            <li>Full tracks are gated for buyers (download limits/expiry or streaming only).</li>
+            <li>Scales from simple Woo/Shopify setup to tokenized HLS if needed.</li>
+          </ul>
+          <div class="mt-6 flex items-center gap-3 text-sm">
+            <i data-lucide="calendar-clock" class="w-4 h-4"></i>
+            <span>Estimated launch timeline: 10–11 weeks from kickoff.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Shop CTA -->
+  <section id="shop" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16">
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+      <div>
+        <h2 class="text-2xl sm:text-3xl font-semibold">Vinyl & CDs — available now</h2>
+        <p class="mt-2 text-zinc-400">Merch and physical releases sit alongside digital options so fans can choose their format.</p>
+      </div>
+      <a href="#" class="inline-flex items-center gap-2 rounded-2xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium">
+        <i data-lucide="shopping-cart" class="w-4 h-4"></i> Browse the Store
+      </a>
+    </div>
+  </section>
+
+  <!-- IP Protection -->
+  <section id="protection" class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-20">
+    <div class="rounded-2xl border border-white/10 bg-white/5 p-8">
+      <div class="flex items-center gap-3">
+        <i data-lucide="shield-check" class="w-5 h-5 text-emerald-300"></i>
+        <h3 class="text-xl font-semibold">Copyright & Security</h3>
+      </div>
+      <p class="mt-3 text-zinc-300 max-w-3xl">
+        We deter piracy with preview-only public clips, gated post-purchase access, expiring links, and optional tokenized HLS. Downloads can be limited or disabled for streaming-only fulfillment.
+      </p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <footer id="contact" class="border-t border-white/10 bg-black/60">
+    <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-14 grid md:grid-cols-2 gap-10">
+      <div>
+        <h3 class="text-xl font-semibold">Let’s talk</h3>
+        <p class="mt-2 text-zinc-400 max-w-prose">Book a walkthrough of the preview-to-purchase flow or request a tailored scope for MeeSo Records, Publishing, or Studios.</p>
+        <div class="mt-4 flex items-center gap-3 text-sm text-zinc-300">
+          <i data-lucide="mail" class="w-4 h-4"></i> contact@greenevineproductions.com
+        </div>
+      </div>
+      <form onsubmit="return false" class="bg-white/5 border border-white/10 rounded-2xl p-6 space-y-4">
+        <div>
+          <label class="text-sm text-zinc-300">Your email</label>
+          <input type="email" required class="mt-1 w-full rounded-xl bg-black/40 border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-400" placeholder="you@company.com">
+        </div>
+        <div>
+          <label class="text-sm text-zinc-300">Message</label>
+          <textarea required class="mt-1 w-full min-h-[120px] rounded-xl bg-black/40 border border-white/10 px-3 py-2 outline-none focus:ring-2 focus:ring-emerald-400" placeholder="Tell us what you have in mind…"></textarea>
+        </div>
+        <button class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium">
+          Send Message <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </button>
+      </form>
+    </div>
+    <div class="text-center text-xs text-zinc-500 pb-8">© <span id="year"></span> Greene Vine Productions. All rights reserved.</div>
+  </footer>
+
+  <!-- Preview logic -->
+  <script>
+    lucide.createIcons();
+    const PREVIEW_SECONDS = 30;
+    const audio = document.getElementById('previewAudio');
+    const btn = document.getElementById('previewBtn');
+    const label = document.getElementById('previewLabel');
+    const status = document.getElementById('previewStatus');
+    audio.src = 'audio/preview-track.mp3'; // upload your 30s clip here
+
+    let playing = false;
+    let timer = null;
+
+    btn.addEventListener('click', () => {
+      if (!playing) {
+        audio.currentTime = 0;
+        audio.play().catch(() => {});
+        playing = true;
+        label.textContent = 'Stop Preview';
+        status.textContent = `Previewing… 0s / ${PREVIEW_SECONDS}s`;
+        let elapsed = 0;
+        clearInterval(timer);
+        timer = setInterval(() => {
+          elapsed += 1;
+          status.textContent = `Previewing… ${Math.min(elapsed, PREVIEW_SECONDS)}s / ${PREVIEW_SECONDS}s`;
+          if (elapsed >= PREVIEW_SECONDS) stopPreview();
+        }, 1000);
+      } else {
+        stopPreview();
+      }
+    });
+
+    function stopPreview() {
+      playing = false;
+      clearInterval(timer);
+      audio.pause();
+      audio.currentTime = 0;
+      label.textContent = 'Play 30s Preview';
+      status.textContent = '0:30 preview (public)';
+    }
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
