@@ -9,11 +9,11 @@
   <!-- Lucide icons (CDN) -->
   <script src="https://unpkg.com/lucide@latest"></script>
   <style>
-    /* small niceties */
     html, body { height: 100%; background: #000; }
   </style>
 </head>
 <body class="text-zinc-100 bg-gradient-to-b from-zinc-950 via-zinc-900 to-black">
+
   <!-- Header -->
   <header class="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-black/30 border-b border-white/10">
     <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -66,7 +66,6 @@
         <p class="mt-2 text-sm text-zinc-400">Label site for releases and artists with sample previews and secure post-purchase access.</p>
         <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">Explore Releases <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
-
       <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
         <div class="flex items-center gap-2 text-emerald-300">
           <i data-lucide="book-open-text" class="w-5 h-5"></i><span class="font-medium">Greene Vine Publishing</span>
@@ -74,7 +73,6 @@
         <p class="mt-2 text-sm text-zinc-400">Catalog listings, rights inquiries, and licensing request workflows.</p>
         <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">View Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
-
       <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
         <div class="flex items-center gap-2 text-emerald-300">
           <i data-lucide="building-2" class="w-5 h-5"></i><span class="font-medium">Greene Vine Studios</span>
@@ -99,38 +97,47 @@
 
     <div class="relative overflow-hidden rounded-2xl border border-white/10 bg-white/5">
       <div class="grid md:grid-cols-2">
+        <!-- Left column: player -->
         <div class="p-6 md:p-8">
           <div class="flex items-center gap-4">
             <div class="w-20 h-20 rounded-xl bg-emerald-500/20 border border-emerald-400/30" aria-label="Album cover placeholder"></div>
             <div>
-              <h3 class="text-xl font-semibold">Midnight Echoes</h3>
-              <p class="text-sm text-zinc-400">MeeSo Records • Samuel Richard Greene</p>
+              <h3 class="text-xl font-semibold">
+                Anthony Brown — “Harvest Song” <span class="text-xs text-emerald-300 align-top">(Sample)</span>
+              </h3>
+              <p class="text-sm text-zinc-400">Sample preview only • 30-sec public clip</p>
             </div>
           </div>
 
+          <!-- Optional rows (keep for layout) -->
           <div class="mt-6 space-y-3">
             <div class="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-3 py-2">
               <div class="flex items-center gap-3">
                 <i data-lucide="play" class="w-4 h-4 opacity-80"></i>
-                <span>Intro Groove</span>
+                <span>Sample Track (Preview Only)</span>
               </div>
-              <span class="text-xs text-zinc-400">2:44</span>
-            </div>
-            <div class="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-3 py-2">
-              <div class="flex items-center gap-3">
-                <i data-lucide="play" class="w-4 h-4 opacity-80"></i>
-                <span>City Skyline</span>
-              </div>
-              <span class="text-xs text-zinc-400">3:58</span>
+              <span class="text-xs text-zinc-400">0:30</span>
             </div>
           </div>
 
-          <div class="mt-6 flex items-center gap-3">
+          <!-- Controls -->
+          <div class="mt-6 flex items-center gap-3 flex-wrap">
             <button id="previewBtn" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium transition">
               <i data-lucide="play" class="w-4 h-4"></i>
               <span id="previewLabel">Play 30s Preview</span>
             </button>
-            <div class="text-xs text-zinc-400" id="previewStatus">0:30 preview (public)</div>
+
+            <div class="text-xs text-zinc-400 flex items-center gap-2">
+              <span id="previewStatus">0:30 preview (public)</span>
+              <span aria-hidden>•</span>
+              <span id="previewTitle">Anthony Brown — “Harvest Song”</span>
+            </div>
+
+            <!-- Volume / Mute -->
+            <div class="flex items-center gap-2 ml-auto">
+              <button id="muteBtn" class="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/15 text-xs">Mute</button>
+              <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" class="w-28">
+            </div>
           </div>
 
           <!-- Hidden audio element -->
@@ -146,10 +153,11 @@
           </div>
         </div>
 
+        <!-- Right column: info -->
         <div class="p-6 md:p-8 bg-[linear-gradient(to_bottom_right,rgba(16,185,129,0.12),transparent)] border-t md:border-t-0 md:border-l border-white/10">
           <h4 class="font-medium">What this demo proves</h4>
           <ul class="mt-3 space-y-2 text-sm text-zinc-300 list-disc list-inside">
-            <li>Public previews are capped at 30 seconds.</li>
+            <li>Public previews are capped at 30 seconds with smooth fade in/out.</li>
             <li>Full tracks are gated for buyers (download limits/expiry or streaming only).</li>
             <li>Scales from simple Woo/Shopify setup to tokenized HLS if needed.</li>
           </ul>
@@ -218,44 +226,101 @@
   <!-- Preview logic -->
   <script>
     lucide.createIcons();
+
     const PREVIEW_SECONDS = 30;
-    const audio = document.getElementById('previewAudio');
-    const btn = document.getElementById('previewBtn');
-    const label = document.getElementById('previewLabel');
+    const FADE_IN_MS = 800;
+    const FADE_OUT_MS = 1200;
+
+    const audio  = document.getElementById('previewAudio');
+    const btn    = document.getElementById('previewBtn');
+    const label  = document.getElementById('previewLabel');
     const status = document.getElementById('previewStatus');
-    audio.src = 'audio/preview-track.mp3'; // upload your 30s clip here
+    const title  = document.getElementById('previewTitle');
+    const muteBtn = document.getElementById('muteBtn');
+    const volumeSlider = document.getElementById('volumeSlider');
+
+    // Your uploaded file (keep this path/name, or change it here and in the repo)
+    audio.src = 'audio/preview-track.mp3';
+
+    const TRACK_TITLE = 'Anthony Brown — “Harvest Song”';
+    title.textContent = TRACK_TITLE;
 
     let playing = false;
-    let timer = null;
+    let tick = null;
+    let fadeInInterval = null;
+    let fadeOutTimeout = null;
+    let userVolume = parseFloat(volumeSlider.value || "1");
 
-    btn.addEventListener('click', () => {
-      if (!playing) {
-        audio.currentTime = 0;
-        audio.play().catch(() => {});
-        playing = true;
-        label.textContent = 'Stop Preview';
-        status.textContent = `Previewing… 0s / ${PREVIEW_SECONDS}s`;
-        let elapsed = 0;
-        clearInterval(timer);
-        timer = setInterval(() => {
-          elapsed += 1;
-          status.textContent = `Previewing… ${Math.min(elapsed, PREVIEW_SECONDS)}s / ${PREVIEW_SECONDS}s`;
-          if (elapsed >= PREVIEW_SECONDS) stopPreview();
-        }, 1000);
-      } else {
-        stopPreview();
-      }
-    });
+    function playPreview() {
+      audio.currentTime = 0;
+      audio.muted = false;
+      audio.volume = 0; // start at 0 for fade-in
+      label.textContent = 'Stop Preview';
+      status.textContent = `Previewing… 0s / ${PREVIEW_SECONDS}s`;
+      playing = true;
+
+      audio.play().catch(() => {});
+
+      let elapsed = 0;
+      clearInterval(tick);
+      tick = setInterval(() => {
+        elapsed += 1;
+        status.textContent = `Previewing… ${Math.min(elapsed, PREVIEW_SECONDS)}s / ${PREVIEW_SECONDS}s`;
+        if (elapsed >= PREVIEW_SECONDS) stopPreview();
+      }, 1000);
+
+      // Fade-in
+      clearInterval(fadeInInterval);
+      const stepsIn = Math.max(1, Math.floor(FADE_IN_MS / 50));
+      let i = 0;
+      fadeInInterval = setInterval(() => {
+        i++;
+        audio.volume = Math.min(userVolume, (i / stepsIn) * userVolume);
+        if (i >= stepsIn) clearInterval(fadeInInterval);
+      }, 50);
+
+      // Fade-out before the end
+      clearTimeout(fadeOutTimeout);
+      fadeOutTimeout = setTimeout(() => {
+        const stepsOut = Math.max(1, Math.floor(FADE_OUT_MS / 50));
+        let j = stepsOut;
+        const outInterval = setInterval(() => {
+          j--;
+          audio.volume = Math.max(0, (j / stepsOut) * userVolume);
+          if (j <= 0) clearInterval(outInterval);
+        }, 50);
+      }, PREVIEW_SECONDS * 1000 - FADE_OUT_MS);
+    }
 
     function stopPreview() {
       playing = false;
-      clearInterval(timer);
+      clearInterval(tick);
+      clearInterval(fadeInInterval);
+      clearTimeout(fadeOutTimeout);
       audio.pause();
       audio.currentTime = 0;
+      audio.volume = userVolume;
       label.textContent = 'Play 30s Preview';
       status.textContent = '0:30 preview (public)';
     }
 
+    btn.addEventListener('click', () => {
+      if (!playing) playPreview();
+      else stopPreview();
+    });
+
+    // Volume & Mute (fully operational)
+    volumeSlider.addEventListener('input', (e) => {
+      userVolume = parseFloat(e.target.value);
+      if (!audio.muted) audio.volume = userVolume;
+    });
+
+    muteBtn.addEventListener('click', () => {
+      audio.muted = !audio.muted;
+      muteBtn.textContent = audio.muted ? 'Unmute' : 'Mute';
+    });
+
+    // Footer year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
