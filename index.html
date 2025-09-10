@@ -60,23 +60,17 @@
     </div>
     <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
-        <div class="flex items-center gap-2 text-emerald-300">
-          <i data-lucide="music-3" class="w-5 h-5"></i><span class="font-medium">MeeSo Records</span>
-        </div>
+        <div class="flex items-center gap-2 text-emerald-300"><i data-lucide="music-3" class="w-5 h-5"></i><span class="font-medium">MeeSo Records</span></div>
         <p class="mt-2 text-sm text-zinc-400">Label site for releases and artists with sample previews and secure post-purchase access.</p>
         <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">Explore Releases <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
       <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
-        <div class="flex items-center gap-2 text-emerald-300">
-          <i data-lucide="book-open-text" class="w-5 h-5"></i><span class="font-medium">Greene Vine Publishing</span>
-        </div>
+        <div class="flex items-center gap-2 text-emerald-300"><i data-lucide="book-open-text" class="w-5 h-5"></i><span class="font-medium">Greene Vine Publishing</span></div>
         <p class="mt-2 text-sm text-zinc-400">Catalog listings, rights inquiries, and licensing request workflows.</p>
         <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">View Catalog <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
       <div class="group rounded-2xl border border-white/10 bg-white/5 p-6 hover:border-emerald-400/40 hover:bg-emerald-400/5 transition">
-        <div class="flex items-center gap-2 text-emerald-300">
-          <i data-lucide="building-2" class="w-5 h-5"></i><span class="font-medium">Greene Vine Studios</span>
-        </div>
+        <div class="flex items-center gap-2 text-emerald-300"><i data-lucide="building-2" class="w-5 h-5"></i><span class="font-medium">Greene Vine Studios</span></div>
         <p class="mt-2 text-sm text-zinc-400">Studio rentals with request-only calendar or full scheduling + deposits.</p>
         <a href="#" class="mt-4 inline-flex items-center gap-2 text-sm text-emerald-300 group-hover:text-emerald-200">Book the Studio <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
       </div>
@@ -100,7 +94,9 @@
         <!-- Left column: player -->
         <div class="p-6 md:p-8">
           <div class="flex items-center gap-4">
-            <div class="w-20 h-20 rounded-xl bg-emerald-500/20 border border-emerald-400/30" aria-label="Album cover placeholder"></div>
+            <div class="relative w-20 h-20 rounded-xl bg-emerald-500/20 border border-emerald-400/30" aria-label="Album cover placeholder">
+              <span class="absolute top-1 left-1 text-[10px] px-1.5 py-0.5 rounded bg-emerald-500 text-black font-semibold">SAMPLE</span>
+            </div>
             <div>
               <h3 class="text-xl font-semibold">
                 Anthony Brown — “Harvest Song” <span class="text-xs text-emerald-300 align-top">(Sample)</span>
@@ -109,7 +105,7 @@
             </div>
           </div>
 
-          <!-- Optional rows (keep for layout) -->
+          <!-- Optional row to show 0:30 preview length -->
           <div class="mt-6 space-y-3">
             <div class="flex items-center justify-between rounded-xl bg-white/5 border border-white/10 px-3 py-2">
               <div class="flex items-center gap-3">
@@ -122,21 +118,26 @@
 
           <!-- Controls -->
           <div class="mt-6 flex items-center gap-3 flex-wrap">
-            <button id="previewBtn" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium transition">
+            <button id="previewBtn" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 bg-emerald-500 hover:bg-emerald-400 text-black font-medium transition" aria-label="Play 30 second sample">
               <i data-lucide="play" class="w-4 h-4"></i>
               <span id="previewLabel">Play 30s Preview</span>
             </button>
 
-            <div class="text-xs text-zinc-400 flex items-center gap-2">
-              <span id="previewStatus">0:30 preview (public)</span>
-              <span aria-hidden>•</span>
-              <span id="previewTitle">Anthony Brown — “Harvest Song”</span>
+            <!-- Progress (read-only) + title -->
+            <div class="flex items-center gap-3">
+              <input id="previewProgress" type="range" min="0" max="30" step="0.1" value="0"
+                     class="w-40 pointer-events-none accent-emerald-400" aria-label="Preview progress (read-only)" tabindex="-1">
+              <div class="text-xs text-zinc-400 flex items-center gap-2">
+                <span id="previewStatus">0:00 / 0:30</span>
+                <span aria-hidden>•</span>
+                <span id="previewTitle">Anthony Brown — “Harvest Song”</span>
+              </div>
             </div>
 
             <!-- Volume / Mute -->
             <div class="flex items-center gap-2 ml-auto">
-              <button id="muteBtn" class="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/15 text-xs">Mute</button>
-              <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" class="w-28">
+              <button id="muteBtn" class="px-2 py-1 rounded-lg bg-white/10 hover:bg-white/15 text-xs" aria-label="Mute">Mute</button>
+              <input id="volumeSlider" type="range" min="0" max="1" step="0.01" value="1" class="w-28" aria-label="Volume">
             </div>
           </div>
 
@@ -238,8 +239,9 @@
     const title  = document.getElementById('previewTitle');
     const muteBtn = document.getElementById('muteBtn');
     const volumeSlider = document.getElementById('volumeSlider');
+    const progress = document.getElementById('previewProgress');
 
-    // Your uploaded file (keep this path/name, or change it here and in the repo)
+    // Your uploaded file (keep the same name/path in your repo)
     audio.src = 'audio/preview-track.mp3';
 
     const TRACK_TITLE = 'Anthony Brown — “Harvest Song”';
@@ -251,12 +253,20 @@
     let fadeOutTimeout = null;
     let userVolume = parseFloat(volumeSlider.value || "1");
 
+    const fmt = (s) => {
+      const m = Math.floor(s / 60);
+      const ss = Math.floor(s % 60);
+      return `${m}:${String(ss).padStart(2,'0')}`;
+    };
+
     function playPreview() {
       audio.currentTime = 0;
       audio.muted = false;
       audio.volume = 0; // start at 0 for fade-in
+      progress.max = PREVIEW_SECONDS;
+      progress.value = 0;
       label.textContent = 'Stop Preview';
-      status.textContent = `Previewing… 0s / ${PREVIEW_SECONDS}s`;
+      status.textContent = `${fmt(0)} / ${fmt(PREVIEW_SECONDS)}`;
       playing = true;
 
       audio.play().catch(() => {});
@@ -265,7 +275,8 @@
       clearInterval(tick);
       tick = setInterval(() => {
         elapsed += 1;
-        status.textContent = `Previewing… ${Math.min(elapsed, PREVIEW_SECONDS)}s / ${PREVIEW_SECONDS}s`;
+        progress.value = Math.min(elapsed, PREVIEW_SECONDS);
+        status.textContent = `${fmt(elapsed)} / ${fmt(PREVIEW_SECONDS)}`;
         if (elapsed >= PREVIEW_SECONDS) stopPreview();
       }, 1000);
 
@@ -301,7 +312,8 @@
       audio.currentTime = 0;
       audio.volume = userVolume;
       label.textContent = 'Play 30s Preview';
-      status.textContent = '0:30 preview (public)';
+      status.textContent = `${fmt(0)} / ${fmt(PREVIEW_SECONDS)}`;
+      progress.value = 0;
     }
 
     btn.addEventListener('click', () => {
